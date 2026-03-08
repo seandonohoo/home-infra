@@ -24,7 +24,7 @@ nodes:
       serial: "25104EA4EFA3"
     machineSpec:
       secureboot: false
-    talosImageURL: factory.talos.dev/installer/9fd81b5f1547a2d7031d500aac26d2b2cd6b65a8a45f0d6b7a3edc4614b1029a
+    talosImageURL: factory.talos.dev/installer/c900c41a4c3dc052800414e1270c08be489d9ec68310700093b9c8fadafb4dc3
     controlPlane: true
     networkInterfaces:
       - deviceSelector:
@@ -44,7 +44,7 @@ nodes:
       serial: "22401G800392"
     machineSpec:
       secureboot: false
-    talosImageURL: factory.talos.dev/installer/9fd81b5f1547a2d7031d500aac26d2b2cd6b65a8a45f0d6b7a3edc4614b1029a
+    talosImageURL: factory.talos.dev/installer/c900c41a4c3dc052800414e1270c08be489d9ec68310700093b9c8fadafb4dc3
     controlPlane: true
     networkInterfaces:
       - deviceSelector:
@@ -64,7 +64,7 @@ nodes:
       serial: "S64ANS0T131578N"
     machineSpec:
       secureboot: false
-    talosImageURL: factory.talos.dev/installer/9fd81b5f1547a2d7031d500aac26d2b2cd6b65a8a45f0d6b7a3edc4614b1029a
+    talosImageURL: factory.talos.dev/installer/c900c41a4c3dc052800414e1270c08be489d9ec68310700093b9c8fadafb4dc3
     controlPlane: true
     networkInterfaces:
       - deviceSelector:
@@ -86,6 +86,8 @@ patches:
   - "@./patches/global/machine-network.yaml"
   - "@./patches/global/machine-sysctls.yaml"
   - "@./patches/global/machine-time.yaml"
+  - "@./patches/global/machine-lldp.yaml"
+  - "@./patches/global/machine-kernel.yaml"
 
 # Controller patches
 controlPlane:
