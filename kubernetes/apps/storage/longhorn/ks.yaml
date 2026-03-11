@@ -17,5 +17,3 @@ spec:
     name: flux-system
     namespace: flux-system
   wait: false
-  dependsOn:
-    - name: cilium
