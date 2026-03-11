@@ -1,0 +1,41 @@
+# yaml-language-server: $schema=https://kubernetes-schemas.pages.dev/helm.toolkit.fluxcd.io/helmrelease_v2.json
+apiVersion: helm.toolkit.fluxcd.io/v2
+kind: HelmRelease
+metadata:
+  name: longhorn
+spec:
+  interval: 30m
+  chart:
+    spec:
+      chart: longhorn
+      version: 1.8.x
+      sourceRef:
+        kind: HelmRepository
+        name: longhorn
+        namespace: flux-system
+  install:
+    remediation:
+      retries: 3
+  upgrade:
+    cleanupOnFail: true
+    remediation:
+      strategy: rollback
+      retries: 3
+  values:
+    persistence:
+      defaultClass: true
+      defaultClassReplicaCount: 3
+    defaultSettings:
+      backupTargetCredentialSecret: null
+      createDefaultDiskLabeledNodes: false
+      defaultDataPath: /var/lib/longhorn
+      defaultReplicaCount: 3
+      nodeDownPodDeletionPolicy: delete-both-statefulset-and-deployment-pod
+      replicaSoftAntiAffinity: true
+      storageMinimalAvailablePercentage: 15
+      storageOverProvisioningPercentage: 100
+      upgradeChecker: false
+    ingress:
+      enabled: false
+    longhornUI:
+      replicas: 1
