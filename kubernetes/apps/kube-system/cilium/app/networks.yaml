@@ -67,3 +67,19 @@ spec:
           peerAddress: 10.26.1.1
           peerConfigRef:
             name: bgp-peer-config-v4
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: kube-api
+  annotations:
+    external-dns.alpha.kubernetes.io/hostname: k8s.dcld.sh
+    lbipam.cilium.io/ips: 10.26.10.120
+spec:
+  type: LoadBalancer
+  externalTrafficPolicy: Local
+  selector:
+    k8s-app: kube-apiserver
+    tier: control-plane
+  ports:
+    - port: 6443
