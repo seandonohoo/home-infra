@@ -14,9 +14,9 @@ spec:
     #   masquerade: true
     #   # Ref: https://github.com/siderolabs/talos/issues/10002
     #   hostLegacyRouting: true
-    bandwidthManager:
-      enabled: true
-      bbr: true
+    # bandwidthManager:
+    #   enabled: true
+    #   bbr: true
     bpf:
       datapathMode: netkit
       masquerade: true
