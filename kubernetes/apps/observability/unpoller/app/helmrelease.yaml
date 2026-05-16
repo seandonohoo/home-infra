@@ -25,7 +25,7 @@ spec:
               UP_UNIFI_DEFAULT_USER: "unifipoller"
               UP_INFLUXDB_DISABLE: true
               UP_UNIFI_DEFAULT_SAVE_DPI: true
-              UP_UNIFI_DEFAULT_VERIFY_SSL: true
+              UP_UNIFI_DEFAULT_VERIFY_SSL: false
             envFrom:
               - secretRef:
                   name: "{{ .Release.Name }}-secret"
